@@ -1,10 +1,10 @@
 from flask import Flask
+from routes.players import players_bp
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "¡Bienvenido a la base de datos de jugadores de básquet!"
+# Registrar blueprints
+app.register_blueprint(players_bp, url_prefix='/api')
 
 if __name__ == '__main__':
     app.run(debug=True)
